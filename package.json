@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.config.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,14 +11,24 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~11.2.6",
+    "@angular/animations": "^11.2.8",
+    "@angular/cdk": "^11.2.7",
     "@angular/common": "~11.2.6",
     "@angular/compiler": "~11.2.6",
     "@angular/core": "~11.2.6",
     "@angular/forms": "~11.2.6",
+    "@angular/material": "^11.2.7",
     "@angular/platform-browser": "~11.2.6",
     "@angular/platform-browser-dynamic": "~11.2.6",
     "@angular/router": "~11.2.6",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^3.4.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "ngx-bootstrap": "^6.2.0",
+    "nodemon": "^2.0.7",
+    "proxy-from-env": "^1.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
@@ -40,6 +50,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.1.5"
+    "typescript": "^4.1.5"
   }
 }
