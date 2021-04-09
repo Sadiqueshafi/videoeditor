@@ -15,7 +15,8 @@ constructor(private service:VideoserviceService) {
 
 }
 ngOnInit(){
-  this.service.getVideo("/api/videos").subscribe(res =>{this.videos=res})
+  this.service.getVideo("/api/videos", { query: { status: "Active" } }).subscribe(res =>
+    {console.log(res);this.videos=res})
 }
   onSelectedVideo(video:any){
     this.selectedvideo =video;
@@ -24,6 +25,7 @@ ngOnInit(){
     }
 
     onSubmitAddVideo(video:Video){
+      console.log(video)
       this.service.addvideo("/api/videos",video).subscribe(resnewvideos=>{
         this.videos.push(resnewvideos);
         this.selectedvideo =resnewvideos

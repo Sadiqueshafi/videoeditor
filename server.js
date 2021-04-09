@@ -7,11 +7,12 @@ const port = process.env.port ||3000;
 const app = express();
 const corse =require('cors');
 app.use(express.static(path.join(__dirname,'dist')) )
-
+app.use(express.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(corse());
 app.use('/api',api);
+// const videos = require('./backend/models/videos');
 
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -24,6 +25,16 @@ app.use(function (req, res, next) {
     }
     next();
   });
+
+// app.post('/api/addvideo',(req,res)=>{
+//   const video = new videos({
+//     title:req.body.title,
+//     url:req.body.url,
+//     description:req.body.description
+//   })
+//   const result =  video.save();
+//   console.log(result);
+// })
 
 app.get('*',(req,res)=>{
   res.sendFile(path.join(__dirname,'dist/index.html'));

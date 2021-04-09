@@ -25,17 +25,17 @@ private _getUrl="http://localhost:3000";
   //   )
   // }
 
-  getVideo(urlPrefix: string): Observable<any> {
+  getVideo(urlPrefix: string, query:any): Observable<any> {
     const url = this._getUrl + urlPrefix
-    return this._http.get(url).pipe(
-      catchError(this.handleError<Video[]>('getvideo', []))
-    );
+    return this._http.get(url, {params:{"query":JSON.stringify(query)}}).pipe(map((data: any) => data.result ),
+    catchError(error => { return throwError('Its a Trap!')})
+);
     }
     addvideo(urlPrefix: string, query: any): Observable<any> {
       const url = this._getUrl + urlPrefix;
-      return this._http.post(url,  JSON.stringify(query)).pipe(
-        catchError(this.handleError)
-      )
+      return this._http.post(url,  JSON.stringify(query)).pipe(map((data: any) => data.result ),
+      catchError(error => { return throwError('Its a Trap!')})
+);
     }
   // getVideo(): Observable<any>{
   //   return this._http.get('http://localhost:3000/api/videos');

@@ -33,7 +33,17 @@ exports.playervideo = router.get('/videos/:id',(req,res)=>{
   })
 })
 
- router.post('/video',(req,res)=>{
+// async function createvide(){
+//   const video = new videos({
+//     title:req.body.title,
+//     url:req.body.title,
+//     description:req.body.description
+//   })
+//   const result = await video.save();
+//   console.log(result);
+// }
+
+  router.post('/video',(req,res)=>{
     console.log("post a video")
   let newVideo = new videos()
   newVideo.title = req.body.title;
