@@ -36,7 +36,7 @@ app.use(function (req, res, next) {
 //   console.log(result);
 // })
 
-app.get('*',(req,res)=>{
+app.get('/*',(req,res)=>{
   res.sendFile(path.join(__dirname,'dist/videosUpload/index.html'));
 })
 
